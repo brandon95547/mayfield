@@ -38,16 +38,18 @@ export default class Header extends React.Component {
         }
         return (
             <>
-                <View style={headerStyles.viewContainer}>
-                    {leftButton}
-
-                    <View style={headerStyles.viewHamburger}>
-                        <TouchableOpacity style={headerStyles.hamburger} onPress={() => {this.props.navigation.navigate(continueButton)}}>
-                            <Icon style={{color: "white"}} type="MaterialCommunityIcons" name='cart' />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={headerStyles.hamburger} onPress={this.props.toggleOpen}>
-                            <Icon style={{color: "white"}} type="MaterialCommunityIcons" name='menu' />
-                        </TouchableOpacity>
+                <View style={{backgroundColor: "#505780", paddingTop: 36}}>
+                    <View style={Platform.OS == 'ios' ? headerStyles.viewContainer : headerStyles.viewAndroid}>
+                        {leftButton}
+    
+                        <View style={headerStyles.viewHamburger}>
+                            <TouchableOpacity style={headerStyles.hamburger} onPress={() => {this.props.navigation.navigate(continueButton)}}>
+                                <Icon style={{color: "white"}} type="MaterialCommunityIcons" name='cart' />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={headerStyles.hamburger} onPress={this.props.toggleOpen}>
+                                <Icon style={{color: "white"}} type="MaterialCommunityIcons" name='menu' />
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </>
