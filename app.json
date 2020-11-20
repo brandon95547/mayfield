@@ -1,0 +1,34 @@
+{
+  "name": "Mayfield Drive In",
+  "displayName": "Mayfield Drive In",
+  "expo": {
+    "name": "Mayfield Drive In",
+    "description": "No description",
+    "slug": "Mayfield-drive-in",
+    "privacy": "public",
+    "version": "1.3",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./assets/img/icon.png",
+    "scheme": "mayfielddrivein",
+    "splash": {
+      "image": "./assets/img/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "packagerOpts": {},
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.raptorwebsolutions.mayfieldapp",
+      "buildNumber": "1.0.22",
+      "associatedDomains": [
+        "applinks:drivein.raptorwebsolutions.com"
+      ]
+    },
+    "android": {
+      "package": "com.raptorwebsolutions.mayfieldapp",
+      "googleServicesFile": "./google-services.json",
+      "versionCode": 4
+    }
+  }
+}
