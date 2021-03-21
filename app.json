@@ -3,10 +3,10 @@
   "displayName": "Mayfield Drive In",
   "expo": {
     "name": "Mayfield Drive In",
-    "description": "No description",
+    "description": "Our app allows you to purchase concessions such as pizza, drinks or other from your mobile phone. We prepare your order and send you a notification when it's ready. Bring your phone with you to the counter and provide your order number to pick up your items. Mayfield Drive In is a business in Chardon, Ohio.",
     "slug": "Mayfield-drive-in",
     "privacy": "public",
-    "version": "1.3",
+    "version": "1.8",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "icon": "./assets/img/icon.png",
@@ -21,14 +21,20 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.raptorwebsolutions.mayfieldapp",
       "buildNumber": "1.0.22",
-      "associatedDomains": [
-        "applinks:drivein.raptorwebsolutions.com"
-      ]
+      "associatedDomains": ["applinks:drivein.raptorwebsolutions.com"]
     },
     "android": {
       "package": "com.raptorwebsolutions.mayfieldapp",
       "googleServicesFile": "./google-services.json",
-      "versionCode": 4
+      "versionCode": 8,
+      "permissions": [
+        "CAMERA",
+        "MEDIA_LIBRARY",
+        "CAMERA_ROLL",
+        "NOTIFICATIONS",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     }
   }
 }

@@ -150,6 +150,15 @@ export default class CartScreen extends React.Component {
     let total = 0
     const paypalItems = [];
 
+    let sauces = [
+      'ketchup',
+      'mustard',
+      'ranch',
+      'honeymustard',
+      'bbq',
+      'mayo'
+    ];
+
     foodItems.forEach((subItem, subIndex) => {
 
       if(parseInt(subItem.quantity) != 0) {
@@ -169,6 +178,7 @@ export default class CartScreen extends React.Component {
         let c1 = []
         let c2 = []
         let c3 = []
+        console.log('condiments', subItem.condiments);
         subItem.condiments.forEach((cItem, cIndex) => {
           switch(cItem.substring(cItem.length - 1, cItem.length)) {
             case '0' :
@@ -181,13 +191,19 @@ export default class CartScreen extends React.Component {
               c3.push(cItem.substring(0, cItem.length - 2));
             break;
           }
+          console.log('cItem', cItem);
         });
         if(c1.length > 0 && parseInt(subItem.quantity) >= 1) {
           if(subItem.quantity > 1) {
             items.push([<Text style={styles.condimentText}>#1</Text>, '', ''])
           }
+          // amount of condiments per this item
+          let amountOf = 1;
           c1.forEach((c1Item) => {
-            let cPrice = '';
+            let cPrice = 0;
+            if(sauces.indexOf(c1Item) !== -1 && amountOf > 1) {
+              cPrice += 1;
+            }
             if(c1Item == 'chili' || c1Item == 'cheese' || c1Item == 'jalapenos') {
               cPrice = 1;
             }
@@ -210,14 +226,21 @@ export default class CartScreen extends React.Component {
                   quantity: 1
                 }
               )
+            }
+            if(sauces.indexOf(c1Item) !== -1) {
+              amountOf++;
             }
             items.push([<Text style={styles.condimentText}>    {c1Item}</Text>, <Text style={styles.condimentText}>{cPrice}</Text>, '-'])
           })
         }
         if(c2.length > 0 && parseInt(subItem.quantity) >= 2) {
           items.push([<Text style={styles.condimentText}>#2</Text>, '', ''])
+          let amountOf = 1;
           c2.forEach((c1Item) => {
-            let cPrice = '';
+            let cPrice = 0;
+            if(sauces.indexOf(c1Item) !== -1 && amountOf > 1) {
+              cPrice += 1;
+            }
             if(c1Item == 'chili' || c1Item == 'cheese' || c1Item == 'jalapenos') {
               cPrice = 1;
             }
@@ -240,14 +263,21 @@ export default class CartScreen extends React.Component {
                   quantity: 1
                 }
               )
+            }
+            if(sauces.indexOf(c1Item) !== -1) {
+              amountOf++;
             }
             items.push([<Text style={styles.condimentText}>    {c1Item}</Text>, <Text style={styles.condimentText}>{cPrice}</Text>, '-'])
           })
         }
         if(c3.length > 0 && parseInt(subItem.quantity) >= 3) {
           items.push([<Text style={styles.condimentText}>#3</Text>, '', ''])
+          let amountOf = 1;
           c3.forEach((c1Item) => {
-            let cPrice = '';
+            let cPrice = 0;
+            if(sauces.indexOf(c1Item) !== -1 && amountOf > 1) {
+              cPrice += 1;
+            }
             if(c1Item == 'chili' || c1Item == 'cheese' || c1Item == 'jalapenos') {
               cPrice = 1;
             }
@@ -270,6 +300,9 @@ export default class CartScreen extends React.Component {
                   quantity: 1
                 }
               )
+            }
+            if(sauces.indexOf(c1Item) !== -1) {
+              amountOf++;
             }
             items.push([<Text style={styles.condimentText}>    {c1Item}</Text>, <Text style={styles.condimentText}>{cPrice}</Text>, '-'])
           })

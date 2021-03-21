@@ -25,6 +25,7 @@ export default class RaptorForm extends React.Component {
       mustardChecked: [],
       ranchChecked: [],
       relishChecked: [],
+      dillPickleChecked: [],
       honeyMustardChecked: [],
       butterChecked: [],
       bbqChecked: [],
@@ -258,6 +259,13 @@ export default class RaptorForm extends React.Component {
       current[index+1] = false;
       current[index+2] = false;
       this.setState({ relishChecked: current })
+      
+      // dillpickles
+      var current = this.state.dillPickleChecked;
+      current[index+0] = false;
+      current[index+1] = false;
+      current[index+2] = false;
+      this.setState({ dillPickleChecked: current })
       
       // honey mustard
       var current = this.state.honeyMustardChecked;
@@ -601,6 +609,11 @@ export default class RaptorForm extends React.Component {
         current[itemIndex+which] = !current[itemIndex+which];
         this.setState({ relishChecked: current })
       break
+      case 'dillpickles' :
+        var current = this.state.dillPickleChecked;
+        current[itemIndex+which] = !current[itemIndex+which];
+        this.setState({ dillPickleChecked: current })
+      break
       case 'honeymustard' :
         var current = this.state.honeyMustardChecked;
         current[itemIndex+which] = !current[itemIndex+which];
@@ -851,6 +864,7 @@ export default class RaptorForm extends React.Component {
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select your options:</Text></View>
         {displayCondiment('Onions', this.state.onionChecked[itemIndex+0], 'onions', 0)}
         {displayCondiment('Relish', this.state.relishChecked[itemIndex+0], 'relish', 0)}
+        {displayCondiment('Dill Pickle Slices', this.state.dillPickleChecked[itemIndex+0], 'dillpickles', 0)}
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select Sauce:</Text></View>
         {displayCondiment('Ketchup', this.state.ketchupChecked[itemIndex+0], 'ketchup', 0)}
         {displayCondiment('Mustard', this.state.mustardChecked[itemIndex+0], 'mustard', 0)}
@@ -862,6 +876,7 @@ export default class RaptorForm extends React.Component {
         {displayCondiment('BBQ', this.state.bbqChecked[itemIndex+0], 'bbq', 0)}
         {displayCondiment('Mayonnaise', this.state.mayoChecked[itemIndex+0], 'mayo', 0)}
         {displayCondiment('Cheese ($1.00)', this.state.cheeseChecked[itemIndex+0], 'cheese', 0)}
+        {displayCondiment('Dill Pickle Slices', this.state.dillPickleChecked[itemIndex+0], 'dillpickles', 0)}
         </>
       break;
       case 'Hotdog' :
@@ -904,6 +919,7 @@ export default class RaptorForm extends React.Component {
         foodOptions = <>
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select your options:</Text></View>
         {displayCondiment('Cheese Sauce ($1.00)', this.state.cheeseChecked[itemIndex+0], 'cheese', 0)}
+        {displayCondiment('Chili ($1.00)', this.state.chiliChecked[itemIndex+0], 'chili', 0)}
         </>
       break;
       case 'Soft Pretzel' :
@@ -973,6 +989,7 @@ export default class RaptorForm extends React.Component {
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select your options:</Text></View>
         {displayCondiment('Onions', this.state.onionChecked[itemIndex+1], 'onions', 1)}
         {displayCondiment('Relish', this.state.relishChecked[itemIndex+1], 'relish', 1)}
+        {displayCondiment('Dill Pickle Slices', this.state.dillPickleChecked[itemIndex+1], 'dillpickles', 1)}
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select Sauce:</Text></View>
         {displayCondiment('Ketchup', this.state.ketchupChecked[itemIndex+1], 'ketchup', 1)}
         {displayCondiment('Mustard', this.state.mustardChecked[itemIndex+1], 'mustard', 1)}
@@ -984,6 +1001,7 @@ export default class RaptorForm extends React.Component {
         {displayCondiment('BBQ', this.state.bbqChecked[itemIndex+1], 'bbq', 1)}
         {displayCondiment('Mayonnaise', this.state.mayoChecked[itemIndex+1], 'mayo', 1)}
         {displayCondiment('Cheese ($1.00)', this.state.cheeseChecked[itemIndex+1], 'cheese', 1)}
+        {displayCondiment('Dill Pickle Slices', this.state.dillPickleChecked[itemIndex+1], 'dillpickles', 1)}
         </>
       break;
       case 'Hotdog' :
@@ -1026,6 +1044,7 @@ export default class RaptorForm extends React.Component {
         foodOptions2 = <>
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select your options:</Text></View>
         {displayCondiment('Cheese Sauce ($1.00)', this.state.cheeseChecked[itemIndex+1], 'cheese', 1)}
+        {displayCondiment('Chili ($1.00)', this.state.chiliChecked[itemIndex+1], 'chili', 1)}
         </>
       break;
       case 'Soft Pretzel' :
@@ -1094,6 +1113,7 @@ export default class RaptorForm extends React.Component {
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select your options:</Text></View>
         {displayCondiment('Onions', this.state.onionChecked[itemIndex+2], 'onions', 2)}
         {displayCondiment('Relish', this.state.relishChecked[itemIndex+2], 'relish', 2)}
+        {displayCondiment('Dill Pickle Slices', this.state.dillPickleChecked[itemIndex+2], 'dillpickles', 2)}
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select Sauce:</Text></View>
         {displayCondiment('Ketchup', this.state.ketchupChecked[itemIndex+2], 'ketchup', 2)}
         {displayCondiment('Mustard', this.state.mustardChecked[itemIndex+2], 'mustard', 2)}
@@ -1105,6 +1125,7 @@ export default class RaptorForm extends React.Component {
         {displayCondiment('BBQ', this.state.bbqChecked[itemIndex+2], 'bbq', 2)}
         {displayCondiment('Mayonnaise', this.state.mayoChecked[itemIndex+2], 'mayo', 2)}
         {displayCondiment('Cheese ($1.00)', this.state.cheeseChecked[itemIndex+2], 'cheese', 2)}
+        {displayCondiment('Dill Pickle Slices', this.state.dillPickleChecked[itemIndex+2], 'dillpickles', 2)}
         </>
       break;
       case 'Hotdog' :
@@ -1147,6 +1168,7 @@ export default class RaptorForm extends React.Component {
         foodOptions3 = <>
         <View style={styles.foodOptionHeading}><Text style={styles.foodOptionHeadingText}>Select your options:</Text></View>
         {displayCondiment('Cheese Sauce ($1.00)', this.state.cheeseChecked[itemIndex+2], 'cheese', 2)}
+        {displayCondiment('Chili ($1.00)', this.state.chiliChecked[itemIndex+2], 'chili', 2)}
         </>
       break;
       case 'Soft Pretzel' :
